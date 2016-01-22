@@ -1,27 +1,29 @@
 {
-	"Tasks": [
-		"go-vet",
-		"go-test",
-		"clean-destination",
+  "Tasks": [
+    "go-vet",
+    "go-test",
+    "clean-destination",
     "go-install",
-		"xc",
-		"archive-tar-gz",
-		"rmbin"
-	],
-	"Arch": "amd64",
-	"BuildConstraints": "linux,amd64",
-	"ResourcesInclude": "$z",
-	"ResourcesExclude": "*.go,INSTALL*,README*,LICENSE*",
-	"PackageVersion": "0.0.1",
-	"BranchName": "master",
-	"PrereleaseInfo": "snapshot",
-	"BuildName": "1",
-	"Verbosity": "d",
-	"ConfigVersion": "0.9",
+    "xc",
+    "archive-tar-gz",
+    "rmbin"
+  ],
+  "Arch": "amd64",
+  "BuildConstraints": "linux,amd64",
+  "ResourcesInclude": "$z",
+  "ResourcesExclude": "*.go,INSTALL*,README*,LICENSE*",
+  "PackageVersion": "0.0.1",
+  "BranchName": "master",
+  "PrereleaseInfo": "snapshot",
+  "BuildName": "1",
+  "Verbosity": "d",
+  "ConfigVersion": "0.9",
   "TaskSettings": {
     "publish-github": {
       "owner": "cgeoffroy",
       "repository": "basic_bcrypt_server"
     }
   }
+
+
 }
