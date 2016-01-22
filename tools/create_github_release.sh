@@ -10,7 +10,7 @@ NAME="v${VERSION}-${BRANCHNAME}.${PRERELEASEINFO}+b${BUILDNAME}"
 
 echo "Creating a new draft release ${NAME}"
 
-github-release release --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}" --name "${NAME}" --draft "true" --description "Built by Travis-ci.org"
+github-release release --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}" --name "${NAME}" --draft --description "Built by Travis-ci.org"
 
 for F in $(find ${GOPATH}/bin/${GH_REPO}-xc/${VERSION}-* -type 'f' -name '*.tar.gz'); do
     echo "Uploading ${F}"
@@ -20,4 +20,4 @@ done
 
 echo "Removing the draft status on tag ${NAME}"
 
-github-release edit --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}" --name "${NAME}" --draft "false"
+github-release edit --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}" --name "${NAME}"
