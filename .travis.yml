@@ -6,3 +6,5 @@ install:
   - go get github.com/laher/goxc github.com/aktau/github-release ./...
 script:
   - goxc
+after_success:
+  - ./tools/create_github_release.sh
