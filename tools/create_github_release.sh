@@ -25,4 +25,4 @@ done
 
 echo "Removing the draft status on tag ${NAME}"
 
-github-release edit --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}" --name "${NAME}"
+github-release edit --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}" --name "${NAME}" --description "Built by Travis-ci.org"
