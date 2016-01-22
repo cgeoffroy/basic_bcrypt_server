@@ -1,7 +1,12 @@
 {
 	"Tasks": [
-		"default",
-		"publish-github"
+		"go-vet",
+		"go-test",
+		"clean-destination",
+    "go-install",
+		"xc",
+		"archive-tar-gz",
+		"rmbin"
 	],
 	"Arch": "amd64",
 	"BuildConstraints": "linux,amd64",
@@ -12,11 +17,11 @@
 	"PrereleaseInfo": "snapshot",
 	"BuildName": "1",
 	"Verbosity": "d",
-	"TaskSettings": {
-		"publish-github": {
-			"owner": "cgeoffroy",
-			"repository": "basic_bcrypt_server"
-		}
-	},
-	"ConfigVersion": "0.9"
+	"ConfigVersion": "0.9",
+  "TaskSettings": {
+    "publish-github": {
+      "owner": "cgeoffroy",
+      "repository": "basic_bcrypt_server"
+    }
+  }
 }
