@@ -8,7 +8,7 @@ GH_USER="$(echo ${TRAVIS_REPO_SLUG} | cut -d '/' -f 1)"
 GH_REPO="$(echo ${TRAVIS_REPO_SLUG} | cut -d '/' -f 2)"
 NAME="v${VERSION}-${BRANCHNAME}.${PRERELEASEINFO}+b${BUILDNAME}"
 
-if $(github-release info --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}"); then
+if github-release info --user "${GH_USER}" --repo "${GH_REPO}" --tag "v${VERSION}" | grep "^- v${VERSION}"; then
     echo "The tag v${VERSION} already exists"
     exit 1
 fi
