@@ -3,7 +3,6 @@ go:
   - 1.5.3
 sudo: false
 install:
-  - go get github.com/laher/goxc ./...
+  - go get github.com/laher/goxc github.com/aktau/github-release ./...
 script:
   - goxc
-
