@@ -12,7 +12,7 @@
   "BuildConstraints": "linux,amd64",
   "ResourcesInclude": "$z",
   "ResourcesExclude": "*.go,INSTALL*,README*,LICENSE*",
-  "PackageVersion": "0.0.5",
+  "PackageVersion": "0.0.6",
   "BranchName": "master",
   "PrereleaseInfo": "snapshot",
   "BuildName": "1",
