@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"strings"
 )
 
 var (
@@ -17,8 +18,12 @@ var port = flag.Int("port", 8080, "listening port")
 var cost = flag.Int("cost", 10, "bcrypt cost")
 var isVersion = flag.Bool("version", false, "current app version")
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	path := r.URL.Path[1:]
+func handlerVersion(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "version: %s\nbuild date: %s\n", VERSION, BUILD_DATE)
+}
+
+func handlerV1(w http.ResponseWriter, r *http.Request) {
+	path := strings.TrimPrefix(r.URL.Path[1:], "v1/")
 	hashedData, err := bcrypt.GenerateFromPassword([]byte(path), *cost)
 	if err != nil {
 		panic(err)
@@ -33,7 +38,8 @@ func main() {
 		fmt.Printf("build date: %s\n", BUILD_DATE)
 		os.Exit(0)
 	}
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/_version", handlerVersion)
+	http.HandleFunc("/v1/", handlerV1)
 	fmt.Printf("Listening on port %d\n", *port)
 	http.ListenAndServe(fmt.Sprintf(":%d", *port), nil)
 }
